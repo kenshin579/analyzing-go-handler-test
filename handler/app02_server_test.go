@@ -1,10 +1,9 @@
 package handler
 
 import (
-	"bitbucket.org/dream_yun/app02"
-	"fmt"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	//"github.com/kenshin579/analyzing-go-handler-test/handler/app02"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -32,7 +31,7 @@ func (api TestApiServer) Save(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	fmt.Fprintf(w, app02.ServiceOK)
+	//fmt.Fprintf(w, app02.ServiceOK)
 }
 
 func (api TestApiServer) ReadFile(w http.ResponseWriter, r *http.Request) {
@@ -45,7 +44,7 @@ func (api TestApiServer) ReadFile(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if fileName == "my.jpg" {
-		fmt.Fprintf(w, app02.ServiceOK)
+		//fmt.Fprintf(w, app02.ServiceOK)
 		return
 	}
 }

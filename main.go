@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bitbucket.org/dream_yun/handlertest/handler"
+	"github.com/kenshin579/analyzing-go-handler-test/handler"
 	"net/http"
 )
 
