@@ -1,0 +1,16 @@
+### ping
+GET http://localhost:9998/ping
+Accept: application/json
+
+### div
+GET http://localhost:9998/div/4/2
+Accept: application/json
+
+### save/calc
+POST http://localhost:9998/save/calc
+Accept: application/json
+
+{
+"data": "a/b"
+}
+
