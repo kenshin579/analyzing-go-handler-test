@@ -16,13 +16,15 @@ var (
 )
 
 func Test_Init(t *testing.T) {
-	logfile, err := os.OpenFile("/tmp/test.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0755)
+	logfile, err := os.OpenFile("test.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0755)
 	assert.Nil(t, err, "")
 
 	FileServer := TestApiServer{}
-	fileServerAddr := FileServer.Run()
+	fileServerAddr := FileServer.Run() //app02 외부 서버를 띄움 - 이 로직은 mock으로 처리하는게 좋아보임
 	h := Handler{}
 	h.Init(fileServerAddr)
+
+	//todo : http server를 시작하고 나서 어디서 teardown을 하나? - 해야 하지 않나?
 	server = httptest.NewServer(handlers.CombinedLoggingHandler(logfile, http.DefaultServeMux))
 	testUrl = server.URL
 }
