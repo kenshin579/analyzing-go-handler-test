@@ -55,10 +55,13 @@ func (h Handler) Div(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	DoPost(h.fileServer+"/save/calc", "a/b")
+	//여기서의 의도는 내부 서버에서 외부 API를 호출하는 예제 추가를 위함
+	resp, err := DoPost(h.fileServer+"/save/calc", "a/b")
+	fmt.Println("resp", resp)
 	fmt.Fprintf(w, "%d", ai/bi)
 }
 
+//todo : 이거의 역할은 뭔지 모르겠음
 func DoPost(url string, data string) (*Response, error) {
 	client := &http.Client{}
 	request, err := http.NewRequest("POST", url, strings.NewReader(data))
